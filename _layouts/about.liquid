@@ -64,10 +64,13 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
+    
     <!-- Social -->
     {% if page.social %}
       <div class="social">
+        {% comment %}
         <div class="contact-icons">{% include social.liquid %}</div>
+        {% endcomment %}
 
         <div class="contact-note">{{ site.contact_note }}</div>
       </div>
@@ -76,5 +79,6 @@ layout: default
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
     {% endif %}
+    
   </article>
 </div>
