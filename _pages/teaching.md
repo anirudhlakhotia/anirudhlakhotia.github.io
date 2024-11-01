@@ -2,11 +2,19 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: A list of my Teaching Assistantships and teaching experiences.
 nav: true
 nav_order: 6
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
-
-Organize your courses by years, topics, or universities, however you like!
+<div class="teaching">
+  <h2 class="year">2024</h2>
+  <div class="teaching-entry">
+    <h3 class="position">Teaching Assistant</h3>
+    <div class="course">
+      <p>Data Analytics (Fall 2024)</p>
+      <p>PES University</p>
+      <p>Under Dr. Gowri Srinivasa</p>
+    </div>
+  </div>
+</div>

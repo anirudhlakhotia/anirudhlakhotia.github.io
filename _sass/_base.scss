@@ -507,6 +507,30 @@ footer.sticky-bottom {
   }
 }
 
+// Teaching
+.teaching {
+  margin-bottom: 2rem;
+}
+
+.year {
+  color: var(--global-theme-color);
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.teaching-entry {
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.position {
+  color: var(--global-text-color);
+  font-size: 1.25rem;
+}
+
+.course {
+  margin-left: 1rem;
+}
+
 // Blog
 
 .header-bar {
