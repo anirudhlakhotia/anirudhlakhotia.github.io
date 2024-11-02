@@ -683,6 +683,21 @@ footer.sticky-bottom {
 .publications {
   margin-top: 2rem;
 
+  .audio-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      font-size: 1em;
+      margin-right: 0.25rem;
+    }
+    &:hover {
+      color: var(--global-theme-color);
+      background-color: var(--global-hover-color);
+    }
+  }
+
   h1 {
     color: var(--global-theme-color);
     font-size: 2rem;
