@@ -215,6 +215,17 @@
           <a href="{{ entry.pdf | prepend: '/assets/pdf/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
         {% endif %}
       {% endif %}
+      {%- if entry.listen %}
+        <a class="btn btn-sm z-depth-0 audio-button" role="button">
+          <i class="fas fa-play"></i>
+          <span>Listen</span>
+          {% if entry.listen contains '://' %}
+            <audio src="{{ entry.listen }}" preload="none"></audio>
+          {% else %}
+            <audio src="{{ entry.listen | prepend: '/assets/audio/' | relative_url }}" preload="none"></audio>
+          {% endif %}
+        </a>
+      {%- endif %}
       {% if entry.supp %}
         {% if entry.supp contains '://' %}
           <a href="{{ entry.supp }}" class="btn btn-sm z-depth-0" role="button">Supp</a>
@@ -367,3 +378,45 @@
     {% endif %}
   </div>
 </div>
+
+<!-- Add this at the bottom of the file -->
+{% if entry.listen %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const audioButtons = document.querySelectorAll('.audio-button');
+
+      audioButtons.forEach((button) => {
+        const audio = button.querySelector('audio');
+        const icon = button.querySelector('i');
+
+        button.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Stop all other playing audio
+          document.querySelectorAll('audio').forEach((a) => {
+            if (a !== audio) {
+              a.pause();
+              a.currentTime = 0;
+              const otherButton = a.closest('.audio-button');
+              if (otherButton) {
+                otherButton.querySelector('i').classList.replace('fa-pause', 'fa-play');
+              }
+            }
+          });
+
+          if (audio.paused) {
+            audio.play();
+            icon.classList.replace('fa-play', 'fa-pause');
+          } else {
+            audio.pause();
+            icon.classList.replace('fa-pause', 'fa-play');
+          }
+        });
+
+        audio.addEventListener('ended', function () {
+          icon.classList.replace('fa-pause', 'fa-play');
+        });
+      });
+    });
+  </script>
+{% endif %}
