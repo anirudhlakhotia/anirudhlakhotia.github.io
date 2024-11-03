@@ -25,4 +25,4 @@ I am an undergraduate student in the Department of Computer Science and Engineer
 
 I do research at the intersection of natural language processing (NLP) and machine learning, and my broad research objective is bridging the gap between state-of-the-art NLP methods and the diverse communities of potential users who could significantly benefit from these advanced technologies, but for whom practical implementation remains a challenge.
 
-I have gained valuable industry experience through internships at [Cisco](https://cisco.com) and [Nokia](https://nokia.com), working on distributed systems and practical machine learning applications. I am always excited to collaborate on projects - feel free to [reach out](anirudhlakhotia5@gmail.com) if you'd like to work together!
+I have gained valuable industry experience through internships at [Cisco](https://www.cisco.com/site/in/en/index.html) and [Nokia](https://nokia.com), working on distributed systems and practical machine learning applications. I am always excited to collaborate on projects - feel free to [reach out](anirudhlakhotia5@gmail.com) if you'd like to work together!
