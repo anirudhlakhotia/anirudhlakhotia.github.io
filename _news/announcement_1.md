@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Awarded **$5,000** research grant from Microsoft For Startups to advance development of efficient multilingual AI systems using mixture-of-experts architecture.
+Awarded **$5,000** research grant from [Microsoft For Startups](https://www.microsoft.com/en-us/startups) to advance development of efficient multilingual AI systems using mixture-of-experts architecture.
