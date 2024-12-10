@@ -4,7 +4,7 @@ permalink: /teaching/
 title: teaching
 description: A list of my Teaching Assistantships.
 nav: true
-nav_order: 6
+nav_order: 3
 ---
 
 <div class="teaching">
