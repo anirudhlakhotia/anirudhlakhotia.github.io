@@ -5,6 +5,10 @@
 
 @use "sass:color";
 
+// Font-display: swap so fonts do not block first paint (Lighthouse FCP/CLS)
+$fa-font-display: swap;
+$ti-font-display: swap;
+
 // Punchy academic palette (deep cobalt accent, jewel venue triad).
 // The accent drives links / active nav / code text / publication links.
 $accent-color: #0b47c7 !default; // light-mode accent (deep vivid cobalt)

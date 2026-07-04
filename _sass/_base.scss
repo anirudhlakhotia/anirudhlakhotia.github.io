@@ -1321,6 +1321,13 @@ ninja-keys::part(ninja-input-wrapper) {
   margin-top: 2.75rem;
 }
 
+// a11y: underline links in prose so they are distinguishable by more than color
+.post article p a,
+.news .table td a,
+.contact-note a {
+  text-decoration: underline;
+}
+
 // newsletter
 .newsletter-form-container {
   margin-bottom: 20px;
