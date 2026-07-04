@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://anirudhlakhotia.github.io/sitemap.xml
+Sitemap: https://anirudhlakhotia.com/sitemap.xml
