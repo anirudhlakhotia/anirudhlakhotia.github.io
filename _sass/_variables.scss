@@ -5,20 +5,45 @@
 
 @use "sass:color";
 
+// Punchy academic palette (deep cobalt accent, jewel venue triad).
+// The accent drives links / active nav / code text / publication links.
+$accent-color: #0b47c7 !default; // light-mode accent (deep vivid cobalt)
+$accent-color-hover: #0837a3 !default; // light-mode hover (deeper cobalt)
+$accent-color-dark: #8fb5e6 !default; // dark-mode accent (softened azure, less vibration)
+$accent-color-dark-hover: #b0cbf0 !default; // dark-mode hover (brighter)
+
+$ink-color: #161616 !default; // light body text (near-black)
+$ink-color-dark: #cdd2d9 !default; // dark body text (high-emphasis, not pure white)
+$muted-color: #565656 !default; // light secondary text
+$muted-color-dark: #98a0aa !default; // dark secondary text
+
+$bg-color-light: #fcfcfb !default; // faint warm off-white
+$bg-color-dark: #0c0d0f !default; // near-black (black theme, no halation)
+$card-bg-color-dark: #1a1b1f !default; // surface: one clear step above near-black base
+$divider-color-dark: #2b2e35 !default;
+
+// Jewel venue label colors (rose / emerald / amber triad).
+$venue-sigir-light: #b3253a !default;
+$venue-sigir-dark: #f08a97 !default;
+$venue-neurips-light: #0f766e !default;
+$venue-neurips-dark: #4fd0bb !default;
+$venue-iceeng-light: #b45309 !default;
+$venue-iceeng-dark: #e0a33e !default;
+
 // Colors
 $red-color: #ff3636 !default;
 $red-color-dark: #b71c1c !default;
 $orange-color: #f29105 !default;
 $blue-color: #0076df !default;
 $blue-color-dark: #00369f !default;
-$cyan-color: #2698ba !default;
+$cyan-color: $accent-color-dark !default; // repointed to slate accent (dark)
 $light-cyan-color: color.adjust($cyan-color, $lightness: 25%);
 $green-color: #00ab37 !default;
 $green-color-lime: #b7d12a !default;
 $green-color-dark: #009f06 !default;
 $green-color-light: #ddffdd !default;
 $green-color-bright: #11d68b !default;
-$purple-color: #b509ac !default;
+$purple-color: $accent-color !default; // repointed to slate accent (light)
 $light-purple-color: color.adjust($purple-color, $lightness: 25%);
 $pink-color: #f92080 !default;
 $pink-color-light: #ffdddd !default;
@@ -35,7 +60,7 @@ $black-color: #000000 !default;
 // Theme colors
 
 $code-bg-color-light: rgba($purple-color, 0.05);
-$code-bg-color-dark: #2c3237 !default;
+$code-bg-color-dark: #23252b !default; // elevated surface (neutral, above card)
 
 // Font awesome location
 $fa-font-path: "../webfonts";

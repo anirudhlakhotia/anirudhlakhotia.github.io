@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk '{o+=gsub\\(/{/,\"{\"\\); c+=gsub\\(/}/,\"}\"\\)} END{print \"open=\"o\" close=\"c}' _sass/_base.scss)",
+      "Read(//opt/homebrew/opt/ruby/bin/**)",
+      "Read(//Users/anirudh.lakhotia/**)",
+      "Bash(brew list *)",
+      "Bash(bundle exec *)",
+      "Bash(tee /tmp/jekyll_build.log)",
+      "Bash(gem list *)",
+      "Bash(docker info *)"
+    ]
+  }
+}

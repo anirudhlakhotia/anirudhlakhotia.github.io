@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Undergraduate thesis paper accepted at NeurIPS 2024 Workshop - UnoLoRA: Single Low-Rank Adaptation for Efficient Multitask Fine-tuning
+Our undergraduate thesis, [UnoLoRA](/publications/#kamalesh2024unolora), was accepted to FITML @ NeurIPS 2024. It uses one shared low-rank adapter for multitask fine-tuning.

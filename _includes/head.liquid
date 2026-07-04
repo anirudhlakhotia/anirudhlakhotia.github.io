@@ -1,6 +1,27 @@
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
 
+<!-- Person structured data (identity signal for name search) -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anirudh Lakhotia",
+    "url": "https://anirudhlakhotia.github.io/",
+    "image": "https://anirudhlakhotia.github.io/assets/img/prof_pic.jpg",
+    "jobTitle": "Software Engineer",
+    "worksFor": { "@type": "Organization", "name": "Couchbase", "url": "https://www.couchbase.com/" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "PES University", "url": "https://pes.edu" },
+    "knowsAbout": ["Information Retrieval", "Representation Learning", "Efficient Machine Learning", "Multi-vector Retrieval"],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=2hf7A6UAAAAJ",
+      "https://github.com/anirudhlakhotia",
+      "https://www.linkedin.com/in/anirudhlakhotia",
+      "https://x.com/AnirudhLak5"
+    ]
+  }
+</script>
+
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
 <link

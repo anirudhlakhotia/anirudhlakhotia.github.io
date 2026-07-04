@@ -5,12 +5,12 @@
 @use "sass:color";
 
 :root {
-  --global-bg-color: #{$white-color};
+  --global-bg-color: #{$bg-color-light};
   --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
+  --global-text-color: #{$ink-color};
+  --global-text-color-light: #{$muted-color};
+  --global-theme-color: #{$accent-color};
+  --global-hover-color: #{$accent-color-hover};
   --global-hover-text-color: #{$white-color};
   --global-footer-bg-color: #{$grey-color-dark};
   --global-footer-text-color: #{$grey-color-light};
@@ -19,6 +19,9 @@
   --global-divider-color: rgba(0, 0, 0, 0.1);
   --global-card-bg-color: #{$white-color};
   --global-highlight-color: #{$red-color-dark};
+  --venue-sigir-color: #{$venue-sigir-light};
+  --venue-neurips-color: #{$venue-neurips-light};
+  --venue-iceeng-color: #{$venue-iceeng-light};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($black-color, "red", $space: rgb)},
     #{color.channel($black-color, "green", $space: rgb)},
@@ -75,19 +78,22 @@
 }
 
 html[data-theme="dark"] {
-  --global-bg-color: #{$grey-color-dark};
+  --global-bg-color: #{$bg-color-dark};
   --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
+  --global-text-color: #{$ink-color-dark};
+  --global-text-color-light: #{$muted-color-dark};
+  --global-theme-color: #{$accent-color-dark};
+  --global-hover-color: #{$accent-color-dark-hover};
   --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
+  --global-footer-bg-color: #131418;
+  --global-footer-text-color: #{$muted-color-dark};
+  --global-footer-link-color: #{$ink-color-dark};
   --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
+  --global-divider-color: #{$divider-color-dark};
+  --global-card-bg-color: #{$card-bg-color-dark};
+  --venue-sigir-color: #{$venue-sigir-dark};
+  --venue-neurips-color: #{$venue-neurips-dark};
+  --venue-iceeng-color: #{$venue-iceeng-dark};
   --global-back-to-top-bg-color: rgba(
     #{color.channel($white-color, "red", $space: rgb)},
     #{color.channel($white-color, "green", $space: rgb)},
@@ -95,21 +101,22 @@ html[data-theme="dark"] {
     0.5
   );
   --global-back-to-top-text-color: #{$black-color};
-  --global-newsletter-bg-color: #{$grey-color-light};
-  --global-newsletter-text-color: #{$grey-color-dark};
+  --global-newsletter-bg-color: #{$card-bg-color-dark};
+  --global-newsletter-text-color: #{$ink-color-dark};
 
+  // Dark-aware semantic blocks (the light mint/yellow/pink bgs glare on near-black)
   --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
+  --global-tip-block-bg: #12241c;
+  --global-tip-block-text: #b8e6ce;
+  --global-tip-block-title: #5fd39b;
   --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
+  --global-warning-block-bg: #262009;
+  --global-warning-block-text: #f0dd93;
+  --global-warning-block-title: #e7c000;
+  --global-danger-block: #e5484d;
+  --global-danger-block-bg: #2a1414;
+  --global-danger-block-text: #f3adad;
+  --global-danger-block-title: #f0787d;
 
   .repo-img-light {
     display: none;

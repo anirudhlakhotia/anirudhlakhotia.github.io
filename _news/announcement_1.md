@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Awarded **$5,000** research grant from [Microsoft For Startups](https://www.microsoft.com/en-us/startups) to advance development of efficient multilingual AI systems using mixture-of-experts architecture.
+I was awarded a **$5,000** research grant from [Microsoft for Startups](https://www.microsoft.com/en-us/startups) to develop [Baraat](https://github.com/anirudhlakhotia/Baraat), an open-source multilingual mixture-of-experts system for code-switched Indic-language inputs.

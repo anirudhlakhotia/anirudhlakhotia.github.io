@@ -208,11 +208,13 @@ ul.task-list input[type="checkbox"] {
 }
 
 .profile.float-right {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .profile.float-left {
-  margin-right: 1rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 576px) {
@@ -224,6 +226,15 @@ ul.task-list input[type="checkbox"] {
         display: block;
       }
     }
+  }
+}
+
+// Mobile: don't float the photo — stack it above the intro, full width
+@media (max-width: 575.98px) {
+  .profile.float-right,
+  .profile.float-left {
+    float: none;
+    margin: 0 0 1.5rem;
   }
 }
 
@@ -570,6 +581,29 @@ footer.sticky-bottom {
   }
 }
 
+.post-header {
+  .desc {
+    margin-bottom: 0.35rem;
+    color: var(--global-text-color-light);
+    font-size: 1rem;
+  }
+
+  .profile-tagline {
+    max-width: 44rem;
+    margin: 0 0 0.5rem;
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.6rem;
+    margin: 0 0 1.25rem;
+    font-size: 0.92rem;
+  }
+}
+
 .post-list {
   margin: 0;
   margin-bottom: 40px;
@@ -716,7 +750,6 @@ footer.sticky-bottom {
 
   h2.bibliography {
     color: var(--global-divider-color);
-    border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
     margin-top: 2rem;
     text-align: right;
@@ -728,21 +761,52 @@ footer.sticky-bottom {
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 0;
 
-      .preview {
+      .publication-entry {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin: 0;
+        padding: 1.2rem 0 1.35rem;
+        border-bottom: 1px solid var(--global-divider-color);
+
+        > .abbr {
+          width: auto;
+          max-width: none;
+          margin-bottom: 0.35rem;
+        }
+
+        > div[id] {
+          width: 100%;
+          max-width: none;
+          padding: 0;
+        }
       }
 
       .abbr {
-        margin-bottom: 0.5rem;
-
         abbr {
           display: inline-block;
-          background-color: var(--global-theme-color);
-          margin-bottom: 0.5rem;
+          width: auto !important;
+          padding: 0;
+          margin: 0;
+          font-size: 0.72rem;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.09em;
+          text-align: left;
+          background: transparent !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+          text-shadow: none !important;
+
+          &,
+          div {
+            color: var(--venue-color, var(--global-text-color-light)) !important;
+          }
 
           a {
-            color: white;
+            color: inherit;
 
             &:hover {
               text-decoration: none;
@@ -757,10 +821,16 @@ footer.sticky-bottom {
       }
 
       .title {
+        margin-bottom: 0.3rem;
+        font-size: 1.05rem;
         font-weight: bolder;
+        line-height: 1.4;
       }
 
       .author {
+        margin-bottom: 0.2rem;
+        font-size: 0.9rem;
+
         a {
           border-bottom: 1px dashed var(--global-theme-color);
 
@@ -787,24 +857,58 @@ footer.sticky-bottom {
         }
       }
 
+      .periodical {
+        color: var(--global-text-color-light);
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      .contribution {
+        max-width: 52rem;
+        margin-top: 0.4rem;
+        color: var(--global-text-color);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
       .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 0.55rem;
+
         a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
-          margin-left: 0;
+          padding: 0;
+          margin: 0;
+          color: var(--global-theme-color);
+          font-size: 0.78rem;
+          font-weight: 500;
+          text-transform: none;
+          background: transparent;
+          border: 0;
+          border-radius: 0;
 
           &:hover {
             color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
+            text-decoration: underline;
+            background: transparent;
           }
         }
         a.award.btn {
           border-color: var(--global-highlight-color);
         }
+      }
+
+      .publication-entry.publication-reneuir-sigir > .abbr abbr {
+        --venue-color: var(--venue-sigir-color);
+      }
+
+      .publication-entry.publication-fitml-neurips > .abbr abbr {
+        --venue-color: var(--venue-neurips-color);
+      }
+
+      .publication-entry.publication-iceeng > .abbr abbr {
+        --venue-color: var(--venue-iceeng-color);
       }
 
       .badges {
@@ -855,11 +959,11 @@ footer.sticky-bottom {
       }
 
       div.abstract.hidden {
-        border: dashed 1px var(--global-bg-color);
-      }
+        border: 0;
 
-      div.abstract.hidden.open {
-        border-color: var(--global-text-color);
+        p {
+          margin: 0.75rem 0 0;
+        }
       }
     }
     div.award.hidden {
@@ -869,6 +973,13 @@ footer.sticky-bottom {
       border-color: var(--global-highlight-color);
     }
   }
+}
+
+// The homepage selection wrapper carries both .publications and
+// .selected-publications, so the eyebrow layout above applies to it too; only
+// the top margin differs here.
+.selected-publications {
+  margin-top: 1rem;
 }
 
 // Rouge Color Customization
@@ -1184,6 +1295,30 @@ ninja-keys::part(ninja-input) {
 
 ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
+}
+
+// news table: keep the date on one line so it doesn't wrap on narrow screens
+.news .table th {
+  white-space: nowrap;
+  padding-right: 1rem;
+}
+
+.news-more {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+// Homepage section headings ("news", "selected publications"): even vertical
+// rhythm and a clear break from the section above. Scoped to the about-layout
+// article (blog posts use article.post-content) so post content is untouched.
+.post > article:not(.post-content) > h2 {
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+// Breathing room before the closing contact note on the homepage.
+.post > article > .social {
+  margin-top: 2.75rem;
 }
 
 // newsletter

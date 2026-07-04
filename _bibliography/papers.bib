@@ -1,12 +1,38 @@
+@article{lakhotia2026maxsim,
+  abbr = {ReNeuIR @ SIGIR},
+  title = {Most {MaxSim} Winners Flip, Retrieval Survives: Low-Margin Substitution in Sign-Coded Late Interaction},
+  author = {Lakhotia, Anirudh and Shantharaju, Nischal Helagally},
+  journal = {5th Workshop on Reaching Efficiency in Neural Information Retrieval (ReNeuIR), co-located with ACM SIGIR},
+  year = {2026},
+  selected = {true},
+  abstract = {Late-interaction retrieval appears unusually robust to extreme compression. We study a sub-bit sign-coded ColBERT representation that stores each 128-dimensional document token as the 64 signs of a projected vector (0.5 bits per original dimension, 8 B/token). On a 100k-passage MS MARCO diagnostic slice, sign coding changes the MaxSim winner for roughly 70% of query tokens, yet relevant-document recall remains near the fp32 ceiling and MRR@10 is recoverable by a short fp32 rerank. We find that sign coding substantially disrupts token-level structure while leaving retrieval effectiveness largely intact. We trace this robustness to low-margin substitution: although sign coding frequently changes the winning document token, the replacement usually has a similar fp32 score, so the resulting loss in the MaxSim sum remains small. At full 8.8M-passage MS MARCO scale, a trained projection provides no statistically reliable advantage in MRR@10 or Recall@1000 over a random orthogonal projection at matched storage. A projection-training-free recipe using a random 64-dimensional projection, 8 B/token sign-coded document storage, and fp32 reranking of the top 100 candidates recovers fp32 MRR@10.},
+  summary = {Sign coding flips most token-level MaxSim winners, yet retrieval survives because the substitutes are low-margin.},
+  pdf = {subbit_multivector_retrieval.pdf},
+  code = {https://github.com/anirudhlakhotia/subbit-multivector-retrieval},
+  listen = {SubBit_Retrieval_NotebookLM.mp3}
+}
+
 @article{kamalesh2024unolora,
-  abbr = {NeurIPS},
+  abbr = {FITML @ NeurIPS},
   title = {UnoLoRA: Single Low-Rank Adaptation for Efficient Multitask Fine-tuning},
-  author = {Lakhotia, Anirudh and Kamalesh, Akash and Nischal, H S and Kulkarni, Prerana Sanjay and Srinivasa, Gowri},
-  journal = {Workshop on Fine-Tuning in Machine Learning at NeurIPS},
+  author = {Lakhotia, Anirudh and Kamalesh, Akash and Shantharaju, Nischal Helagally and Kulkarni, Prerana Sanjay and Srinivasa, Gowri},
+  journal = {Workshop on Fine-Tuning in Machine Learning, co-located with NeurIPS},
   year = {2024},
   selected = {true},
   abstract = {Recent advances in Parameter-Efficient Fine-Tuning (PEFT) have shown Low-Rank Adaptation (LoRA) to be an effective implicit regularizer for large language models. Building on these findings, we propose UnoLoRA, a novel approach that leverages a single shared LoRA module for efficient multi-task learning. While existing methods typically use separate LoRA adaptations for each task, our approach demonstrates that a single shared adapter can effectively capture both task-specific and task-agnostic knowledge. We further introduce UnoLoRA*, an enhanced variant that employs a shared hypernetwork to generate task-specific embeddings, improving convergence and task adaptation. Our method significantly reduces trainable parameters to just 0.05% per task while maintaining competitive performance on the GLUE benchmark. Our analysis reveals that the A and B matrices in our shared LoRA adapter naturally develop complementary roles: A matrices capture generalizable features across tasks, while B matrices specialize in task-specific representations. Our results show that sharing a single LoRA adapter can achieve efficient multi-task learning while significantly reducing memory requirements, making it particularly valuable for resource-constrained applications.},
+  summary = {One shared low-rank adapter supports multitask fine-tuning without duplicating a separate adapter for every task.},
   pdf = {https://openreview.net/pdf?id=n6W0QkQBgw},
-  preview = {neurips_preview.png},
   listen = {UnoLoRA_NotebookLM.mp3}
+}
+
+@inproceedings{lakhotia2025sampling,
+  abbr = {ICEENG},
+  title = {Analysis of Sampling Strategies for Multi-Task Learning in Transformer Models},
+  author = {Lakhotia, Anirudh and Kamalesh, Akash and Shantharaju, Nischal Helagally and Kulkarni, Prerana Sanjay and Srinivasa, Gowri},
+  booktitle = {International Conference on Electrical Engineering (ICEENG)},
+  year = {2025},
+  abstract = {Multitask learning has emerged as a powerful paradigm for enhancing natural language understanding capabilities in large language models. However, the effectiveness of multitask learning heavily depends on the sampling strategy used to balance exposure to tasks of varying sizes and complexities during training. In this work, we conduct a comprehensive empirical analysis of three sampling strategies using T5-small on a subset of the GLUE benchmark: examples-proportional sampling, which samples based on raw dataset sizes; temperature-scaled sampling with T=10.0, which moderates size-based differences; and equal sampling, which gives uniform probability to all tasks. Our analysis examines the impact of these strategies on model performance, convergence patterns, task representation, and internal model dynamics through spectral analysis. Our results demonstrate that temperature-scaled sampling provides a strong balance between task representation and overall performance, while equal sampling achieves the highest average score across all tasks. Spectral analysis reveals that sampling strategies produce fundamentally different internal representations despite similar performance metrics, with higher temperatures promoting more uniform and stable layer behavior. We provide practical guidelines for selecting appropriate sampling strategies based on dataset characteristics, computational constraints, and specific training goals, contributing to more effective multitask learning approaches for language models.},
+  summary = {Task-sampling strategies produce different internal representations even when aggregate multitask performance is similar.},
+  pdf = {iceeng2025_sampling_strategies.pdf},
+  listen = {Temperature_Sampling_NotebookLM.mp3}
 }

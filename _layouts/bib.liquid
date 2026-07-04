@@ -1,6 +1,6 @@
 ---
 ---
-<div class="row">
+<div class="row publication-entry publication-{{ entry.abbr | downcase | slugify }}">
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
@@ -45,7 +45,7 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="col-sm-10">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
@@ -78,7 +78,9 @@
         {%- endif -%}
 
         {%- if forloop.length > 1 -%}
-          {% if forloop.first == false %},&nbsp;{% endif %}
+          {% unless forloop.first %}
+            {% unless forloop.last and forloop.length == 2 %},&nbsp;{% endunless %}
+          {% endunless %}
           {%- if forloop.last and author_array_limit == author_array_size %}and&nbsp;{% endif -%}
         {% endif %}
         {%- if author_is_self -%}
@@ -181,6 +183,9 @@
     <div class="periodical">
       {{ entry.note | strip }}
     </div>
+    {% if entry.summary %}
+      <div class="contribution">{{ entry.summary }}</div>
+    {% endif %}
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -383,34 +388,47 @@
 {% if entry.listen %}
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const audioButtons = document.querySelectorAll('.audio-button');
+      const audioButtons = document.querySelectorAll('.audio-button:not([data-audio-bound])');
 
       audioButtons.forEach((button) => {
+        button.dataset.audioBound = 'true';
+
         const audio = button.querySelector('audio');
         const icon = button.querySelector('i');
 
         button.addEventListener('click', function (e) {
           e.preventDefault();
 
-          // Stop all other playing audio
-          document.querySelectorAll('audio').forEach((a) => {
-            if (a !== audio) {
-              a.pause();
-              a.currentTime = 0;
-              const otherButton = a.closest('.audio-button');
-              if (otherButton) {
-                otherButton.querySelector('i').classList.replace('fa-pause', 'fa-play');
-              }
+          if (!audio.paused) {
+            audio.pause();
+            return;
+          }
+
+          // Stop any other recording before starting this one.
+          document.querySelectorAll('.audio-button audio').forEach((otherAudio) => {
+            if (otherAudio !== audio) {
+              otherAudio.pause();
+              otherAudio.currentTime = 0;
             }
           });
 
-          if (audio.paused) {
-            audio.play();
-            icon.classList.replace('fa-play', 'fa-pause');
-          } else {
-            audio.pause();
-            icon.classList.replace('fa-pause', 'fa-play');
+          const playRequest = audio.play();
+          if (playRequest !== undefined) {
+            playRequest.catch((error) => {
+              // A rapid second click can intentionally cancel a pending play request.
+              if (error.name !== 'AbortError') {
+                console.error('Unable to play publication audio:', error);
+              }
+            });
           }
+        });
+
+        audio.addEventListener('play', function () {
+          icon.classList.replace('fa-play', 'fa-pause');
+        });
+
+        audio.addEventListener('pause', function () {
+          icon.classList.replace('fa-pause', 'fa-play');
         });
 
         audio.addEventListener('ended', function () {

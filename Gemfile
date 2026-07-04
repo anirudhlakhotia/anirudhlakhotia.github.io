@@ -26,3 +26,12 @@ group :other_plugins do
     gem 'feedjira'
     gem 'httparty'
 end
+# Former default gems, extracted from stdlib in Ruby 3.4+/4.0; still required
+# by activesupport/jekyll transitively.
+gem 'base64'
+gem 'benchmark'
+gem 'bigdecimal'
+gem 'csv'
+gem 'logger'
+gem 'observer'
+gem 'ostruct'

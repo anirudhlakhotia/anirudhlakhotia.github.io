@@ -7,10 +7,9 @@ first_name: Anirudh
 middle_name:
 last_name: Lakhotia
 email: anirudhlakhotia5@gmail.com
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+description: Anirudh Lakhotia is a Software Engineer at Couchbase researching information retrieval, learned representations, and efficient machine learning systems.
 footer_text: >
-keywords: anirudh lakhotia, anirudh, lakhotia, cs, pes, pes university # add your own keywords or leave empty
+keywords: anirudh lakhotia, couchbase, information retrieval, representation learning, efficient machine learning, multi-vector retrieval # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ▶︎ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -60,9 +59,9 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org in the HTML head
+og_image: https://anirudhlakhotia.github.io/assets/img/prof_pic.jpg # absolute URL for OG/Twitter preview
 
 # -----------------------------------------------------------------------------
 # Social integration
@@ -79,7 +78,7 @@ github_username: anirudhlakhotia
 gitlab_username: # your GitLab user name
 ieee_id: # your ieeexplore.ieee.org/author/id
 inspirehep_id: # Inspire HEP author ID
-instagram_id: anirudh_lakhotia
+instagram_id: # your Instagram handle
 kaggle_id: # your kaggle id
 keybase_username: # your keybase user name
 lastfm_id: # your lastfm id
@@ -105,12 +104,12 @@ whatsapp_number: # your WhatsApp number (full phone number in international form
 wikidata_id: # your wikidata id
 wikipedia_id: # your wikipedia id (Case sensitive)
 work_url: # work page URL
-x_username: # your X handle
+x_username: AnirudhLak5
 youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
 contact_note: >
-  Email is the best way to reach me, but you can also connect with me on social media using the links above.
+  For research or engineering collaborations on efficient retrieval or ML systems under production constraints, <a href="mailto:anirudhlakhotia5@gmail.com">email me</a>.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -198,8 +197,8 @@ collections:
 
 announcements:
   enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  scrollable: false # no scroll box on the homepage; extras live on the news page
+  limit: 3 # homepage shows the 3 latest; "all news" links to the full list
 
 latest_posts:
   enabled: false
@@ -440,7 +439,7 @@ enable_masonry: true # enables automatic project cards arrangement
 enable_math: true # enables math typesetting (uses MathJax)
 enable_tooltips: false # enables automatic tooltip links generated for each section titles on pages and posts
 enable_darkmode: true # enables switching between light/dark modes
-enable_navbar_social: true # enables displaying social links in the navbar on the about page
+enable_navbar_social: false # off; homepage uses the labeled links row under the tagline instead
 enable_project_categories: true # enables categorization of projects into multiple categories
 enable_medium_zoom: true # enables image zoom feature (as on medium.com)
 enable_progressbar: true # enables a horizontal progress bar linked to the vertical scroll position
