@@ -1322,8 +1322,19 @@ ninja-keys::part(ninja-input-wrapper) {
 }
 
 // a11y: underline links in prose so they are distinguishable by more than color
+// Subtle, accessible underline on in-text links: distinguishable by more than
+// color (WCAG link-in-text) but understated; darkens to full on hover.
+.post article p a,
+.news .table td a,
 .contact-note a {
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  text-decoration-color: color-mix(in srgb, currentColor 25%, transparent);
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
 // newsletter
