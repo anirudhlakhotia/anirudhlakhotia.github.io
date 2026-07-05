@@ -27,14 +27,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
-<!-- Bootstrap & MDB -->
+<!-- Bootstrap (MDB CSS dropped: only used z-depth utilities, now in _base.scss) -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
-<link
-  rel="stylesheet"
-  href="{{ site.third_party_libraries.mdb.url.css }}"
-  integrity="{{ site.third_party_libraries.mdb.integrity.css }}"
-  crossorigin="anonymous"
->
 
 <!-- Bootstrap Table -->
 {% if page.pretty_table %}
@@ -47,14 +41,24 @@
   >
 {% endif %}
 
-<!-- Fonts & Icons -->
-<link defer rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
+<!-- Fonts & Icons (non-blocking: swap media to 'all' once loaded so they don't block first paint) -->
 <link
-  defer
+  rel="stylesheet"
+  href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}"
+  media="print"
+  onload="this.media='all'"
+>
+<link
   rel="stylesheet"
   type="text/css"
   href="{{ site.third_party_libraries.google_fonts.url.fonts }}"
+  media="print"
+  onload="this.media='all'"
 >
+<noscript>
+  <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
+  <link rel="stylesheet" type="text/css" href="{{ site.third_party_libraries.google_fonts.url.fonts }}">
+</noscript>
 
 <!-- Code Syntax Highlighting -->
 <link
