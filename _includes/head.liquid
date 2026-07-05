@@ -22,9 +22,7 @@
   }
 </script>
 
-<!-- Preconnect to Google Fonts so the web font arrives before first paint -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preconnect to jsDelivr for third-party libraries -->
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
 <!-- Bootstrap (MDB CSS dropped: only used z-depth utilities, now in _base.scss) -->
@@ -41,23 +39,24 @@
   >
 {% endif %}
 
-<!-- Fonts & Icons (non-blocking: swap media to 'all' once loaded so they don't block first paint) -->
+<!-- Preload the primary self-hosted font so text paints in Roboto without a flash -->
+<link
+  rel="preload"
+  href="{{ '/assets/fonts/roboto/roboto-latin.woff2' | relative_url }}"
+  as="font"
+  type="font/woff2"
+  crossorigin
+>
+
+<!-- Icons (non-blocking: swap media to 'all' once loaded so they don't block first paint) -->
 <link
   rel="stylesheet"
   href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}"
   media="print"
   onload="this.media='all'"
 >
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{{ site.third_party_libraries.google_fonts.url.fonts }}"
-  media="print"
-  onload="this.media='all'"
->
 <noscript>
   <link rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
-  <link rel="stylesheet" type="text/css" href="{{ site.third_party_libraries.google_fonts.url.fonts }}">
 </noscript>
 
 <!-- Code Syntax Highlighting -->
