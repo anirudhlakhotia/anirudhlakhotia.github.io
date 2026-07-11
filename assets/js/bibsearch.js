@@ -52,6 +52,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const updateInputField = () => {
     const hashValue = decodeURIComponent(window.location.hash.substring(1)); // Remove the '#' character
+    // A hash that matches a bibliography entry's id (its BibTeX key, e.g. #lakhotia2026maxsim)
+    // is a jump-to-paper anchor, not a search term. The key isn't in the entry's visible text,
+    // so searching for it would hide every entry. Keep the whole list visible, then scroll to
+    // the linked paper and briefly highlight it so the reader sees it in the context of the rest.
+    const entry = hashValue ? document.getElementById(hashValue) : null;
+    if (entry && entry.closest(".bibliography")) {
+      document.getElementById("bibsearch").value = "";
+      filterItems("");
+      document.querySelectorAll(".bibsearch-highlight").forEach((el) => el.classList.remove("bibsearch-highlight"));
+      const row = entry.closest(".publication-entry") || entry;
+      entry.scrollIntoView({ block: "center" });
+      void row.offsetWidth; // restart the animation if the same paper is linked again
+      row.classList.add("bibsearch-highlight");
+      return;
+    }
     document.getElementById("bibsearch").value = hashValue;
     filterItems(hashValue);
   };

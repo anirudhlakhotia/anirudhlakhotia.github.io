@@ -1509,3 +1509,25 @@ ninja-keys::part(ninja-input-wrapper) {
     0 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
+
+// Briefly ring the publication a direct link points to (e.g. from a news item),
+// so the reader spots it while the full list stays visible.
+.publication-entry.bibsearch-highlight {
+  border-radius: 6px;
+  outline: 3px solid transparent;
+  outline-offset: 14px;
+  animation: bibsearch-flash 2.6s ease-out 1;
+
+  // phones: the container gutter is ~14px, so a 14px offset would clip at the viewport edge
+  @media (max-width: 575.98px) {
+    outline-offset: 8px;
+  }
+}
+@keyframes bibsearch-flash {
+  from {
+    outline-color: var(--global-theme-color);
+  }
+  to {
+    outline-color: transparent;
+  }
+}
