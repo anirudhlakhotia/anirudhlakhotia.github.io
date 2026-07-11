@@ -1,6 +1,8 @@
 ---
 ---
-<div class="row publication-entry publication-{{ entry.abbr | downcase | slugify }}">
+<!-- id on the row so #bibkey anchors scroll the whole visual card into view
+     (on phones the badge stacks above the text column, which would end up under the navbar) -->
+<div id="{{ entry.key }}" class="row publication-entry publication-{{ entry.abbr | downcase | slugify }}">
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
@@ -44,8 +46,7 @@
     </div>
   {% endif %}
 
-  <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="col-sm-10">
+  <div class="col-sm-10">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
