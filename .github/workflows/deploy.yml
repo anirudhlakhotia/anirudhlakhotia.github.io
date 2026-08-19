@@ -64,6 +64,7 @@ jobs:
   deploy:
     # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
@@ -85,7 +86,10 @@ jobs:
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
       - name: Install ImageMagick 🖼️
-        run: sudo apt-get update && sudo apt-get install -y imagemagick webp
+        timeout-minutes: 5
+        run: |
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::ForceIPv4=true -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::ForceIPv4=true -o Acquire::http::Timeout=30 -o Acquire::https::Timeout=30 install -y --no-install-recommends imagemagick webp
       - name: Install and Build 🔧
         run: |
           pip3 install --upgrade nbconvert
