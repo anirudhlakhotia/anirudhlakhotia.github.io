@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our undergraduate thesis, [UnoLoRA](/publications/#kamalesh2024unolora), was accepted to FITML @ NeurIPS 2024. It uses one shared low-rank adapter for multitask fine-tuning.
+Our undergraduate thesis, [_UnoLoRA_](/publications/#kamalesh2024unolora), was accepted to <span class="research-venue">FITML @ NeurIPS 2024</span>.

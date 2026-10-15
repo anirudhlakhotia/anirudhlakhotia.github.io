@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started full-time at [Couchbase](https://www.couchbase.com/) as a Software Engineer on the SDKs and Connectors team.
+Joined Couchbase full-time as a Software Engineer on the SDKs & Connectors team.

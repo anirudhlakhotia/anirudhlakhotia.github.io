@@ -109,7 +109,7 @@ youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
 contact_note: >
-  For research or engineering collaborations on efficient retrieval or ML systems under production constraints, <a href="mailto:anirudhlakhotia5@gmail.com">email me</a>.
+  For research or engineering collaborations, feel free to <a href="mailto:anirudhlakhotia5@gmail.com">email me</a>.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -339,8 +339,9 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: year
-  group_order: descending
+  group_by: none
+  sort_by: year
+  order: descending
 
 # Display different badges withs stats for your publications
 # Customize badge behavior in _layouts/bib.liquid

@@ -44,6 +44,17 @@ a,
 table.table a {
   color: var(--global-theme-color);
 
+  &:visited {
+    color: var(--global-theme-color);
+  }
+
+  em,
+  span,
+  strong,
+  i {
+    color: inherit;
+  }
+
   &:hover {
     color: var(--global-theme-color);
     text-decoration: underline;
@@ -52,6 +63,13 @@ table.table a {
   &:hover:after :not(.nav-item.dropdown) {
     width: 100%;
   }
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--global-theme-color);
+  outline-offset: 3px;
 }
 
 .table-dark {
@@ -234,8 +252,21 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Mobile: don't float the photo — stack it above the intro, full width
+// Mobile: don't float the photo; show the name and intro first, then the photo
 @media (max-width: 575.98px) {
+  .post:has(> .profile) {
+    display: flex;
+    flex-direction: column;
+
+    > .profile {
+      order: 1;
+    }
+
+    > article {
+      order: 2;
+    }
+  }
+
   .profile.float-right,
   .profile.float-left {
     float: none;
@@ -295,7 +326,7 @@ ul.task-list input[type="checkbox"] {
 .navbar.navbar-light {
   a {
     &:hover {
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 
@@ -342,6 +373,8 @@ ul.task-list input[type="checkbox"] {
 }
 
 .navbar-toggler {
+  color: var(--global-text-color);
+
   .icon-bar {
     display: block;
     width: 22px;
@@ -367,6 +400,10 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+html[data-theme] #back-to-top {
+  color: var(--global-theme-color);
+}
+
 .navbar-toggler.collapsed {
   .top-bar {
     transform: rotate(0);
@@ -387,6 +424,11 @@ ul.task-list input[type="checkbox"] {
   border: 0;
   background-color: inherit;
   color: var(--global-text-color);
+
+  span,
+  i {
+    color: inherit;
+  }
 
   &:hover {
     color: var(--global-hover-color);
@@ -463,11 +505,11 @@ footer.fixed-bottom {
   }
 
   a {
-    color: var(--global-footer-link-color);
+    color: var(--global-theme-color);
 
     &:hover {
       color: var(--global-theme-color);
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 }
@@ -536,6 +578,10 @@ footer.sticky-bottom {
 .teaching-entry {
   margin-left: 1rem;
   margin-top: 1rem;
+
+  p {
+    color: var(--global-text-color-light);
+  }
 }
 
 .position {
@@ -584,6 +630,10 @@ footer.sticky-bottom {
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
+}
+
+.research-venue {
+  font-weight: 600;
 }
 
 .post-header {
@@ -796,7 +846,7 @@ footer.sticky-bottom {
           padding: 0;
           margin: 0;
           font-size: 0.72rem;
-          font-weight: 700;
+          font-weight: 600;
           line-height: 1;
           letter-spacing: 0.09em;
           text-align: left;
@@ -804,19 +854,7 @@ footer.sticky-bottom {
           border-radius: 0 !important;
           box-shadow: none !important;
           text-shadow: none !important;
-
-          &,
-          div {
-            color: var(--venue-color, var(--global-text-color-light)) !important;
-          }
-
-          a {
-            color: inherit;
-
-            &:hover {
-              text-decoration: none;
-            }
-          }
+          color: var(--venue-color, var(--global-text-color-light)) !important;
         }
 
         .award {
@@ -837,27 +875,17 @@ footer.sticky-bottom {
         font-size: 0.9rem;
 
         a {
-          border-bottom: 1px dashed var(--global-theme-color);
-
-          &:hover {
-            border-bottom-style: solid;
-            text-decoration: none;
-          }
-        }
-
-        > em {
-          border-bottom: 1px solid;
-          font-style: normal;
+          text-decoration: underline;
         }
 
         > span.more-authors {
-          color: var(--global-text-color-light);
-          border-bottom: 1px dashed var(--global-text-color-light);
+          color: var(--global-theme-color);
+          border-bottom: 1px dashed currentColor;
           cursor: pointer;
 
           &:hover {
-            color: var(--global-text-color);
-            border-bottom: 1px dashed var(--global-text-color);
+            color: var(--global-theme-color);
+            border-bottom-style: solid;
           }
         }
       }
@@ -866,6 +894,10 @@ footer.sticky-bottom {
         color: var(--global-text-color-light);
         font-size: 0.88rem;
         line-height: 1.45;
+
+        em {
+          color: inherit;
+        }
       }
 
       .contribution {
@@ -1302,8 +1334,14 @@ ninja-keys::part(ninja-input-wrapper) {
   background: var(--global-bg-color);
 }
 
-// news table: keep the date on one line so it doesn't wrap on narrow screens
+// news table: follow the page text colour (theme.js adds .table-dark, which forces white)
+.news .table {
+  color: var(--global-text-color);
+}
+
+// keep the date on one line so it doesn't wrap on narrow screens
 .news .table th {
+  color: var(--global-text-color-light);
   white-space: nowrap;
   padding-right: 1rem;
 }
