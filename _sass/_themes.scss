@@ -78,6 +78,7 @@
 }
 
 html[data-theme="dark"] {
+  color-scheme: dark;
   --global-bg-color: #{$bg-color-dark};
   --global-code-bg-color: #{$code-bg-color-dark};
   --global-text-color: #{$ink-color-dark};
@@ -94,13 +95,9 @@ html[data-theme="dark"] {
   --venue-sigir-color: #{$venue-sigir-dark};
   --venue-neurips-color: #{$venue-neurips-dark};
   --venue-iceeng-color: #{$venue-iceeng-dark};
-  --global-back-to-top-bg-color: rgba(
-    #{color.channel($white-color, "red", $space: rgb)},
-    #{color.channel($white-color, "green", $space: rgb)},
-    #{color.channel($white-color, "blue", $space: rgb)},
-    0.5
-  );
+  --global-back-to-top-bg-color: #{$card-bg-color-dark};
   --global-back-to-top-text-color: #{$black-color};
+  --global-link-underline-opacity: 45%;
   --global-newsletter-bg-color: #{$card-bg-color-dark};
   --global-newsletter-text-color: #{$ink-color-dark};
 
@@ -123,6 +120,18 @@ html[data-theme="dark"] {
   }
   .repo-img-dark {
     display: block;
+  }
+
+  // Headings a step brighter than body text (Teaching years keep the accent)
+  .post-title,
+  .post > article > h2,
+  .publications .title,
+  .teaching-entry .position {
+    color: #{$heading-color-dark};
+  }
+
+  #back-to-top {
+    border: 1px solid var(--global-divider-color);
   }
 }
 

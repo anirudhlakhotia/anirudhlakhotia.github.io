@@ -1373,7 +1373,7 @@ ninja-keys::part(ninja-input-wrapper) {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
-  text-decoration-color: color-mix(in srgb, currentColor 25%, transparent);
+  text-decoration-color: color-mix(in srgb, currentColor var(--global-link-underline-opacity, 25%), transparent);
 
   &:hover {
     text-decoration-color: currentColor;
