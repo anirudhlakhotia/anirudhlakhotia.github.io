@@ -7,7 +7,7 @@
   selected = {true},
   abstract = {Late-interaction retrieval appears unusually robust to extreme compression. We study a sub-bit sign-coded ColBERT representation that stores each 128-dimensional document token as the 64 signs of a projected vector (0.5 bits per original dimension, 8 B/token). On a 100k-passage MS MARCO diagnostic slice, sign coding changes the MaxSim winner for roughly 70% of query tokens, yet relevant-document recall remains near the fp32 ceiling and MRR@10 is recoverable by a short fp32 rerank. We find that sign coding substantially disrupts token-level structure while leaving retrieval effectiveness largely intact. We trace this robustness to low-margin substitution: although sign coding frequently changes the winning document token, the replacement usually has a similar fp32 score, so the resulting loss in the MaxSim sum remains small. At full 8.8M-passage MS MARCO scale, a trained projection provides no statistically reliable advantage in MRR@10 or Recall@1000 over a random orthogonal projection at matched storage. A projection-training-free recipe using a random 64-dimensional projection, 8 B/token sign-coded document storage, and fp32 reranking of the top 100 candidates recovers fp32 MRR@10.},
   summary = {Extreme compression changes most token-level matches, yet retrieval remains robust through low-margin substitutions.},
-  pdf = {subbit_multivector_retrieval.pdf},
+  pdf = {maxsim-winners-flip-retrieval-survives.pdf},
   code = {https://github.com/anirudhlakhotia/subbit-multivector-retrieval},
   listen = {SubBit_Retrieval_NotebookLM.mp3}
 }
