@@ -1344,6 +1344,13 @@ ninja-keys::part(ninja-input-wrapper) {
   color: var(--global-text-color-light);
   white-space: nowrap;
   padding-right: 1rem;
+  // shared minimum so the news and academic service tables line up on phones
+  min-width: 7.5em;
+}
+
+// the service label may wrap on narrow screens instead of widening its column
+.news .table th.service-label {
+  white-space: normal;
 }
 
 .news-more {

@@ -78,6 +78,24 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
+    <!-- Academic service: uses the news table layout; the label shows on the first row only -->
+    {% if page.service %}
+      <div class="news mt-4">
+        <table class="table table-sm table-borderless mb-0">
+          {% for item in page.service %}
+            <tr>
+              <th scope="row" class="service-label" style="width: 20%">
+                {% if forloop.first %}Academic service{% endif %}
+              </th>
+              <td>
+                {{ item.role }}, <a href="{{ item.url }}">{{ item.venue }}</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+    {% endif %}
+
     <!-- Latest posts -->
     {% if site.latest_posts.enabled %}
       <h2>latest posts</h2>

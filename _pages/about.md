@@ -15,6 +15,10 @@ profile:
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+service: # shown below news, in the same two-column layout
+  - role: Reviewer
+    venue: FITML Workshop at NeurIPS 2024
+    url: https://sites.google.com/view/neurips2024-ftw/home
 ---
 
 At [Couchbase](https://www.couchbase.com/), I build SDKs and connectors for its distributed database.
